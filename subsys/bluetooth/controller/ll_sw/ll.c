@@ -132,7 +132,7 @@ int ll_init(struct k_sem *sem_rx)
 
 	clock_control_on(clk, CLOCK_CONTROL_NRF_SUBSYS_LF);
 
-	entropy = device_get_binding(DT_CHOSEN_ZEPHYR_ENTROPY_LABEL);
+	entropy = device_get_binding(DT_LABEL(DT_NODELABEL(rng)));
 	if (!entropy) {
 		return -ENODEV;
 	}
